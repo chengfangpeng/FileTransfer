@@ -40,6 +40,10 @@ public class FileTransferServer extends NanoHTTPD {
     @Override
     public Response serve(IHTTPSession session) {
 
+        //解决中文乱码问题
+        ContentType ct = new ContentType(session.getHeaders().get("content-type")).tryUTF8();
+        session.getHeaders().put("content-type", ct.getContentTypeHeader());
+
         HashMap<String, String> values = new HashMap<>();
         values.put("title", "chengfangpeng");
         values.put("header_logo", "/image/icon.png");
@@ -71,9 +75,8 @@ public class FileTransferServer extends NanoHTTPD {
                 uploadFile = true;
                 final String tmpFilePath = files.get(fileKey);
                 Log.d(TAG, "tmpFilePath = " + tmpFilePath);
-                final String fileName = fileKey;
                 final File tmpFile = new File(tmpFilePath);
-                final File targetDir = new File(mContext.getCacheDir() + "/upload/");
+                final File targetDir = new File(mContext.getExternalCacheDir() + "/upload/");
                 if(!targetDir.exists()){
                     targetDir.mkdir();
                 }

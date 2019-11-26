@@ -11,12 +11,15 @@ public class FileEntity {
 
     public String fileThumbnail;
 
+    public String filePath;
+
     @Override
     public String toString() {
         return "FileEntity{" +
                 "fileName='" + fileName + '\'' +
                 ", fileSize=" + fileSize +
                 ", fileThumbnail='" + fileThumbnail + '\'' +
+                ", filePath='" + filePath + '\'' +
                 '}';
     }
 }
