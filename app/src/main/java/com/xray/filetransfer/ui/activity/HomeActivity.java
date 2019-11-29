@@ -13,6 +13,7 @@ import com.xray.filetransfer.server.FileTransferServer;
 import com.xray.filetransfer.ui.FileListAdapter;
 import com.xray.filetransfer.ui.decoration.FileListItemDecoration;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;

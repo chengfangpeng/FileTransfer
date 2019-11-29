@@ -44,6 +44,8 @@ public class FileTransferServer extends NanoHTTPD {
         ContentType ct = new ContentType(session.getHeaders().get("content-type")).tryUTF8();
         session.getHeaders().put("content-type", ct.getContentTypeHeader());
 
+        session.getUri();
+
         HashMap<String, String> values = new HashMap<>();
         values.put("title", "chengfangpeng");
         values.put("header_logo", "/image/icon.png");
